@@ -1,6 +1,4 @@
 ---
-layout: splash
+layout: home
 permalink: /
 ---
-  
-test

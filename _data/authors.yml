@@ -1,0 +1,11 @@
+Nyefan:
+  name: "Nyefan"
+  bio: ""
+  avatar: ""
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:webmaster@nyefan.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://nyefan.org"
