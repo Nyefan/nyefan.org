@@ -3,8 +3,8 @@ layout: single
 title: "Lutris"
 author: "Nyefan"
 categories:
-  - software
-  - media
+  - "software"
+  - "media"
 tags:
   - "tools"
   - "local"

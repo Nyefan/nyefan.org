@@ -1,4 +1,4 @@
 ---
-permalink: /year-archive
+permalink: /year-archive/
 layout: posts
 ---
