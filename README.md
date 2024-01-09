@@ -2,17 +2,45 @@
 * Create a file in _posts of the format `YYYY-MM-DD-Post-Name.md`
 * Create a metadata header at the top of that file with an appropriate list of categories/tags (please use only tags in
   this list).
-```jekyll
+```yaml
 ---
 layout: post
 title: "Post Name"
 author: "Author Name OR Anon"
 categories: 
-    - Actions
-    - Theory
-    - Critique
-    - News
-    - Resources
+  - [software|politics|media|presentations]
+tags:
+  - "api design"
+  - "C#"
+  - "dependency hell"
+  - "economics"
+  - "energy"
+  - "games"
+  - "golang"
+  - "hardware programming"
+  - "history"
+  - "java"
+  - "language"
+  - "liberation"
+  - "local"
+  - "media"
+  - "nodejs"
+  - "oppression"
+  - "original content"
+  - "performance"
+  - "police brutality"
+  - "postmortem"
+  - "practice"
+  - "preservation"
+  - "python"
+  - "retrospective"
+  - "reverse engineering"
+  - "right to repair"
+  - "rust"
+  - "software"
+  - "teardown"
+  - "tools"
+  - "unicode"
 ---
 ```
 * Write the post below the header using [Markdown formatting](https://www.markdownguide.org/basic-syntax#headings).

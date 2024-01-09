@@ -9,6 +9,6 @@ tags:
   - "practice"
   - "teardown"
   - "media"
-  - "game"
+  - "games"
 ---
 [link](https://peteris.rocks/blog/htop/)

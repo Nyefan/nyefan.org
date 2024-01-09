@@ -9,6 +9,6 @@ tags:
   - "history"
   - "practice"
   - "performance"
-  - "game"
+  - "games"
 ---
 [link](https://www.pcgamesn.com/rollercoaster-tycoon/code-chris-sawyer)

@@ -8,6 +8,6 @@ categories:
 tags:
   - "tools"
   - "local"
-  - "game"
+  - "games"
 ---
 [link](https://lutris.net)
