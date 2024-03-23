@@ -214,3 +214,10 @@ when reconsidering them next year.
 * Into the Breach
 * Opus Magnum
 * FTL
+
+## Games that were forgotten
+
+Some games were not included in the original ranking but will be considered in future passes.
+
+* Time Splitters 2
+* Time Splitters 3: Future Perfect
