@@ -7,6 +7,6 @@ categories:
 tags:
   - "original content"
 ---
-I will be presenting the talk "Things I Hate About Developers" at [LexTalk Tech October 2023](https://lextalk.tech/).
+I presented the talk "Things I Hate About Developers" at [LexTalk Tech October 2023](https://lextalk.tech/).
 
-The slides and notes are available [here](https://nyefan.org/slides/2023-10-12-LexTalk-Tech.html).
+The slides and notes are available [here](https://nyefan.org/slides/2023-10-12-LexTalk-Tech/slides.html).
