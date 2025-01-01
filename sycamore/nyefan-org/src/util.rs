@@ -5,7 +5,11 @@ use sycamore::prelude::View;
 use tracing::debug;
 use tracing_subscriber::FmtSubscriber;
 
-pub(crate) fn render_md_files_in_directory(input_directory: &str, output_directory: &str, embed_html_function: fn(String) -> View) -> Result<(), Box<dyn Error>> {
+pub(crate) fn render_md_files_in_directory(
+    input_directory: &str,
+    output_directory: &str,
+    embed_html_function: fn(String) -> View,
+) -> Result<(), Box<dyn Error>> {
     let _ = std::fs::remove_dir_all(output_directory);
     walk_directory(Path::new(input_directory))?
         .iter()
@@ -19,7 +23,7 @@ pub(crate) fn render_md_files_in_directory(input_directory: &str, output_directo
             let page = embed_html_function(content);
             Ok((
                 PathBuf::from(output_path),
-                sycamore::render_to_string(|| page)
+                sycamore::render_to_string(|| page),
             ))
         })
         .try_for_each(|result: Result<(PathBuf, String), Box<dyn Error>>| {

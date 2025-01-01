@@ -1,3 +1,5 @@
+#![feature(macro_metavar_expr_concat)]
+mod color;
 mod index;
 mod post;
 mod util;
