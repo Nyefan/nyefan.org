@@ -14,8 +14,6 @@ First, let's get the nonsense out of the way:
 Because I like it.
 ### Should I use this?
 If it fits your needs, go for it.
-### Do I use this for hobby shit?
-Of course not.
 
 ## Use Cases
 ### Normal Release Flow
