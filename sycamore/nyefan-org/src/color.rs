@@ -1,3 +1,5 @@
+use std::fmt::{Display, Formatter};
+
 #[derive(Debug)]
 pub(crate) struct Color {
     value: u32,
@@ -11,6 +13,12 @@ impl Color {
     }
     pub(crate) const fn value(&self) -> u32 {
         self.value
+    }
+}
+
+impl Display for Color {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.hex)
     }
 }
 
