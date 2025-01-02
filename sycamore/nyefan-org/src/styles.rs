@@ -96,7 +96,7 @@ pub(super) fn sidebar() -> String {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            background-color: {MOSS};
+            background-color: {JADE};
             color: {BEIGE_LIGHT};
             padding: 20px;
             border-radius: 10px;
@@ -147,6 +147,31 @@ pub(super) fn content_section() -> String {
         .content-section h2 {{
             color: {LAVENDER_MEDIUM};
             margin-bottom: 10px;
+        }}
+
+        .content-section h3 {{
+            color: {GOLDENROD_DARK};
+        }}
+
+        .content-section a {{
+            color: {GOLDENROD_DARK};
+        }}
+
+        .content-section a:hover {{
+            text-decoration: underline;
+        }}
+
+        .content-section code {{
+            background-color: {BEIGE_LIGHT};
+            border-radius: 6px;
+        }}
+
+        .content-section ul {{
+            margin-left: 20px;
+        }}
+
+        .content-section ol {{
+            margin-left: 20px;
         }}
 
         .content-section p {{

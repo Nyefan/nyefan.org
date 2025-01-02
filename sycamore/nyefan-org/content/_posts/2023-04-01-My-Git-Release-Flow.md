@@ -82,6 +82,6 @@ Coming Soon
 ### When NOT to use this workflow
 1. you don't control client binaries and can't (or don't wish to) enforce that their versions remain updated
 2. you don't have a sufficiently mature engineering organization to trust teams to keep their production shit updated
-   1. and you don't have sufficient observability into gitops for managers to see these issues
-      1. (or your managers just don't give enough of a shit to do their jobs)
+   - and you don't have sufficient observability into gitops for managers to see these issues
+   - (or your managers just don't give enough of a shit to do their jobs)
 3. too many people are working on a repository to reasonably expect all prs to be rebased and retested before merging
