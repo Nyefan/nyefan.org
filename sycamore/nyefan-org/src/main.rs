@@ -10,7 +10,7 @@ use std::error::Error;
 
 fn main() -> Result<(), Box<dyn Error>> {
     util::setup_logging();
-    let s = sycamore::render_to_string(index::template);
+    let s = sycamore::render_to_string(index::template(index::test_data()));
     if std::fs::exists("dist")? {
         std::fs::remove_dir_all("dist")?;
     }

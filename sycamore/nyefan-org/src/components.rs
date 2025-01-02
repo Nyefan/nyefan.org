@@ -3,8 +3,7 @@ use sycamore::component;
 use sycamore::prelude::*;
 use sycamore::web::tags::*;
 
-type SiteHead = View;
-
+pub(crate) type SiteHead = View;
 #[component]
 pub(crate) fn site_head() -> SiteHead {
     head()
@@ -19,7 +18,7 @@ pub(crate) fn site_head() -> SiteHead {
         .into()
 }
 
-type SiteBody = View;
+pub(crate) type SiteBody = View;
 #[component]
 pub(crate) fn site_body<T>(site_body: T) -> SiteBody
 where
@@ -28,7 +27,7 @@ where
     body().children(site_body).into()
 }
 
-type Wrapper = View;
+pub(crate) type Wrapper = View;
 #[component]
 pub(crate) fn wrapper<T>(wrapper: T) -> Wrapper
 where
@@ -37,7 +36,7 @@ where
     div().class("wrapper").children(wrapper).into()
 }
 
-type SiteHeader = View;
+pub(crate) type SiteHeader = View;
 #[component]
 pub(crate) fn site_header() -> SiteHeader {
     header()
@@ -53,7 +52,7 @@ pub(crate) fn site_header() -> SiteHeader {
         .into()
 }
 
-type Main = View;
+pub(crate) type Main = View;
 #[component]
 pub(crate) fn main<T>(main: T) -> Main
 where
@@ -62,7 +61,7 @@ where
     div().class("main").children(main).into()
 }
 
-type Sidebar = View;
+pub(crate) type Sidebar = View;
 #[component]
 pub(crate) fn sidebar() -> Sidebar {
     aside().class("sidebar").children((
@@ -92,7 +91,7 @@ pub(crate) fn sidebar() -> Sidebar {
     )).into()
 }
 
-type Content = View;
+pub(crate) type Content = View;
 #[component]
 pub(crate) fn content<T>(content: T) -> Content
 where
@@ -101,7 +100,7 @@ where
     div().class("content").children(content).into()
 }
 
-type ContentSection = View;
+pub(crate) type ContentSection = View;
 #[component]
 pub(crate) fn content_section<T>(content_section: T) -> ContentSection
 where
@@ -113,7 +112,7 @@ where
         .into()
 }
 
-type SiteFooter = View;
+pub(crate) type SiteFooter = View;
 #[component]
 pub(crate) fn site_footer() -> SiteFooter {
     footer()
