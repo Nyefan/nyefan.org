@@ -1,7 +1,9 @@
 #![feature(macro_metavar_expr_concat)]
 mod color;
+mod components;
 mod index;
 mod post;
+mod styles;
 mod util;
 
 use std::error::Error;

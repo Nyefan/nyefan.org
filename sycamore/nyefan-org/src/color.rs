@@ -2,18 +2,9 @@ use std::fmt::{Display, Formatter};
 
 #[derive(Debug)]
 pub(crate) struct Color {
+    #[cfg_attr(not(test), expect(dead_code))]
     value: u32,
     hex: &'static str,
-}
-
-#[expect(dead_code)]
-impl Color {
-    pub(crate) const fn hex(&self) -> &str {
-        self.hex
-    }
-    pub(crate) const fn value(&self) -> u32 {
-        self.value
-    }
 }
 
 impl Display for Color {
@@ -39,7 +30,6 @@ const fn to_hex_bytes(value: u32) -> [u8; 7] {
 /// Macro to generate a compile-time static `Color`.
 macro_rules! color {
     ($name:ident, $value:literal) => {
-        #[cfg_attr(not(test), expect(dead_code))]
         pub(crate) const $name: Color = Color {
             value: $value,
             hex: {
@@ -59,14 +49,14 @@ macro_rules! color {
         #[test_log::test]
         fn ${concat(test_idempotency_, $name)}() {
             assert_eq!(
-                format!("#{:06x}", $name.value()).to_uppercase(),
-                $name.hex(),
+                format!("#{:06x}", $name.value).to_uppercase(),
+                $name.hex,
                 "hex value for {} does not match expected value!",
                 stringify!($name)
             );
             assert_eq!(
-                u32::from_str_radix($name.hex().trim_start_matches("#"), 16).unwrap(),
-                $name.value(),
+                u32::from_str_radix($name.hex.trim_start_matches("#"), 16).unwrap(),
+                $name.value,
                 "u32 value for {} does not match expected value!",
                 stringify!($name)
             );
@@ -82,5 +72,4 @@ color!(GRAY_DARCULA, 0x2B2B2B);
 color!(LAVENDER_DARK, 0x4E2A84);
 color!(LAVENDER_MEDIUM, 0x7851A9);
 color!(MOSS, 0x256B45);
-color!(WHITE_PURE, 0xFFFFFF);
 color!(WHITE_SOFT, 0xFAFAFA);
