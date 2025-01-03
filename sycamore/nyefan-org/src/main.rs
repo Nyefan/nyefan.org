@@ -16,6 +16,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
     std::fs::create_dir("dist")?;
     std::fs::write("dist/index.html", s)?;
-    util::render_md_files_in_directory("content/_posts", "dist/posts", post::template)?;
+    util::render_md_files_in_directory("content/posts", "dist/posts", post::template)?;
     Ok(())
 }
