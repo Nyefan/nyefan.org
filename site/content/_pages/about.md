@@ -1,31 +1,25 @@
-## CV
-
-### Software Engineer
-
-### Lexington, KY - jobs@nyefan.org
-
 ## Skills
 
-<table>
+<table style="width:100%;margin-bottom: 20px;">
   <tr>
     <th>java</th>
     <th>kubernetes</th>
     <th>postgresql</th>
-    <th>aws/azure/gcp</th>
+    <th>aws / azure / gcp</th>
     <th>developer experience</th>
   </tr>
   <tr>
     <th>rust</th>
-    <th>helm/kustomize/timoni</th>
+    <th>helm / kustomize / timoni</th>
     <th>cassandra</th>
-    <th>terraform/crossplane/kops</th>
+    <th>terraform / crossplane / kops</th>
     <th>incident management</th>
   </tr>
   <tr>
-    <th>python 3</th>
-    <th>docker/containerd</th>
+    <th>python</th>
+    <th>docker / containerd</th>
     <th>dynamodb</th>
-    <th>circleci/github actions/tekton</th>
+    <th>circleci / github actions / tekton</th>
     <th>site reliability</th>
   </tr>
 </table>
@@ -34,11 +28,13 @@
 
 ---
 
-### <u>Staff DevOps Engineer</u>
+<p></p>
 
-### [ZenGRC](https://www.zengrc.com/)
+#### <u>Staff DevOps Engineer</u>
 
-#### May 2022 to Present
+##### [ZenGRC](https://www.zengrc.com/)
+
+##### May 2022 to Present
 
 - Created and led interim release management team until processes improved sufficiently to disband it.
 - Rebuilt ci/cd, processes, and service and cloud architectures to attain FedRamp Moderate certification
@@ -50,13 +46,17 @@
 - Evaluated technologies for adoption, migration, and removal
 - Mentored junior and senior engineers
 
+<p></p>
+
 ---
 
-### <u>Lead Engineer</u>
+<p></p>
 
-### [all.health](https://all.health)
+#### <u>Lead Engineer</u>
 
-#### April 2021 - April 2022
+##### [all.health](https://all.health)
+
+##### April 2021 - April 2022
 
 - Built developer-managed ephemeral environment CI/CD platform, allowing each developer to work on their own, versioned
   copy of the business platform
@@ -71,13 +71,17 @@
     - analytics ingest and aggregation
     - monitoring and alerting
 
+<p></p>
+
 ---
 
-### <u>Senior DevOps Engineer</u>
+<p></p>
 
-#### [Lifesize](https://www.enghousevideo.com/lifesize)
+#### <u>Senior DevOps Engineer</u>
 
-#### February 2019 - April 2021
+##### [Lifesize](https://www.enghousevideo.com/lifesize)
+
+##### February 2019 - April 2021
 
 - SME for Kubernetes, Kops, EKS, Helm, CircleCI, and Java
 - Respond to, diagnose, and correct production outages
@@ -90,21 +94,31 @@
 - Implemented automated error rate anomaly detection and rollback in production service deployments
 - Created dual monitoring and alerting pipelines using Prometheus, Grafana, Cloudwatch, and OpsGenie
 
+<p></p>
+
 ---
 
-### <u>Software Engineer</u>
+<p></p>
 
-#### [Spanning Cloud Apps](https://www.spanning.com/)
+#### <u>Software Engineer</u>
 
-#### July 2018 - January 2019
+##### [Spanning Cloud Apps](https://www.spanning.com/)
+
+##### July 2018 - January 2019
 
 - Developed Java and Typescript services for managing data at petabyte scale.
 
+<p></p>
+
 ---
 
-### <u>Software Engineer I</u>
+<p></p>
 
-#### [Spectrum](https://www.spectrum.com/) (via Nuovo Solutions)
+#### <u>Software Engineer I</u>
+
+##### [Spectrum](https://www.spectrum.com/) (via Nuovo Solutions)
+
+##### January 2017 - June 2018
 
 - Developed a Helm- and Terraform-based Kubernetes bootstrapping and deployment tool for creating and maintaining a
   versioned infrastructure and service mesh with seamless rollback capability.
@@ -112,25 +126,33 @@
 - Developed, containerized, and deployed Java microservices.
 - Converted stateful cron jobs to stateless REST services.
 
+<p></p>
+
 ---
 
-### <u>Researcher</u>
+<p></p>
 
-#### University of Kansas
+#### <u>Researcher</u>
 
-#### November 2011 - May 2014
+##### [University of Kansas](https://physics.ku.edu/)
+
+##### November 2011 - May 2014
 
 - Optimized chemical vapor deposition growth and polymer transfer techniques for graphene and other 2D materials.
 - Designed and constructed Hall Effect and quantum Hall Effect devices and transistors from various 2D materials.
 - Created lithography process for etching trace circuits into CVD graphene.
 
+<p></p>
+
 ---
 
-### <u>Space Sciences Research Intern</u>
+<p></p>
 
-#### NASA Goddard
+#### <u>Space Sciences Research Intern</u>
 
-#### August 2012 - December 2012
+##### [NASA Goddard](https://lambda.gsfc.nasa.gov/product/class/)
+
+##### August 2012 - December 2012
 
 - Designed and constructed prototype 300 milliKelvin refrigerator for the Cosmic Large Angular Scale Surveyor project.
 - Automated crystal growth process, removing the need for 24/7 human maintenance during salt pill formation.

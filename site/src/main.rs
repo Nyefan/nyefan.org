@@ -13,9 +13,15 @@ fn main() -> Result<(), Box<dyn Error>> {
     std::fs::create_dir("dist")?;
     std::fs::write("dist/index.html", s)?;
     util::render_md_files_in_directory("content/_posts", "dist/posts", pages::post::template)?;
+    util::render_md_file(
+        "content/_pages/about.md",
+        "dist/about.html",
+        pages::about::template,
+    )?;
+    util::render_md_file(
+        "content/_pages/contact.md",
+        "dist/contact.html",
+        pages::contact::template,
+    )?;
     Ok(())
-}
-
-fn render_posts() -> Result<sycamore::web::View, Box<dyn Error>> {
-    Ok(().into())
 }

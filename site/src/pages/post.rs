@@ -27,6 +27,7 @@ pub(crate) fn preview(post: Post) -> View {
     components::content_section(div().dangerously_set_inner_html(post.html_content))
 }
 
+#[expect(dead_code)]
 pub(crate) struct Post {
     path: String,
     raw_content: String,
@@ -35,6 +36,7 @@ pub(crate) struct Post {
     metadata: PostMetadata,
 }
 
+#[expect(dead_code)]
 pub(crate) struct PostMetadata {
     raw_gray_matter: String,
     title: String,
@@ -44,6 +46,7 @@ pub(crate) struct PostMetadata {
     date: String,
 }
 
+#[expect(dead_code)]
 pub(crate) enum Tag {
     Gaming,
     Programming,

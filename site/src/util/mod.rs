@@ -34,6 +34,21 @@ pub(crate) fn render_md_files_in_directory(
     Ok(())
 }
 
+pub(crate) fn render_md_file(
+    input_path: &str,
+    output_path: &str,
+    embed_html_function: fn(String) -> View,
+) -> Result<(), Box<dyn Error>> {
+    debug!("Reading {input_path:?}");
+    let md_content = std::fs::read_to_string(Path::new(input_path))?;
+    let html_content = render_md_to_html_string(md_content)?;
+    let view = embed_html_function(html_content.clone());
+    let html = sycamore::render_to_string(|| view);
+    debug!("Writing to {output_path:?}");
+    std::fs::write(output_path, html)?;
+    Ok(())
+}
+
 type MdString = String;
 pub(crate) fn read_md_files_in_directory<T, E>(
     input_directory: &str,

@@ -7,8 +7,8 @@ towards devops and software development using k8s, aws, java, python/bash, and r
 
 ## Do you think I should write about something in particular?
 
-Email me topic suggestions or questions at mailto:questions@nyefan.org
+Email me topic suggestions or questions at [questions@nyefan.org](mailto:questions@nyefan.org)
 
 ## Did I get something wrong?
 
-Send corrections to mailto:corrections@nyefan.org
+Send corrections to [corrections@nyefan.org](mailto:corrections@nyefan.org)
