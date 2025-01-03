@@ -1,9 +1,6 @@
 ---
-layout: single
 title: "LexTalk Tech October 2023"
 author: "Nyefan"
-categories:
-  - "presentations"
 tags:
   - "original content"
 ---

@@ -1,6 +1,6 @@
-use crate::color::*;
+use crate::util::colors::*;
 
-pub(super) fn star() -> String {
+pub(crate) fn star() -> String {
     format!(
         "* {{
             margin: 0;
@@ -12,7 +12,7 @@ pub(super) fn star() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn html_body() -> String {
+pub(crate) fn html_body() -> String {
     format!(
         "html, body {{
             height: 100%;
@@ -29,7 +29,7 @@ pub(super) fn html_body() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn wrapper() -> String {
+pub(crate) fn wrapper() -> String {
     format!(
         ".wrapper {{
             display: flex;
@@ -44,7 +44,7 @@ pub(super) fn wrapper() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn header() -> String {
+pub(crate) fn header() -> String {
     format!(
         "header {{
             background-color: {LAVENDER_DARK};
@@ -62,7 +62,7 @@ pub(super) fn header() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn nav() -> String {
+pub(crate) fn nav() -> String {
     format!(
         "nav {{
             margin-top: 10px;
@@ -80,7 +80,7 @@ pub(super) fn nav() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn main() -> String {
+pub(crate) fn main() -> String {
     ".main {
         flex: 1; /* Allow the main section to expand */
         display: flex;
@@ -89,7 +89,7 @@ pub(super) fn main() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn sidebar() -> String {
+pub(crate) fn sidebar() -> String {
     format!(
         ".sidebar {{
             flex: 1;
@@ -122,7 +122,7 @@ pub(super) fn sidebar() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn content() -> String {
+pub(crate) fn content() -> String {
     ".content {
         flex: 3;
         display: flex;
@@ -134,7 +134,7 @@ pub(super) fn content() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn content_section() -> String {
+pub(crate) fn content_section() -> String {
     format!(
         ".content-section {{
             padding: 20px;
@@ -187,7 +187,7 @@ pub(super) fn content_section() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn pre() -> String {
+pub(crate) fn pre() -> String {
     format!(
         "pre {{
             background-color: {GRAY_DARCULA};
@@ -201,7 +201,7 @@ pub(super) fn pre() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn footer() -> String {
+pub(crate) fn footer() -> String {
     format!(
         "footer {{
             text-align: center;
@@ -225,7 +225,7 @@ pub(super) fn footer() -> String {
     .collect::<Vec<&str>>()
     .join(" ")
 }
-pub(super) fn all() -> String {
+pub(crate) fn all() -> String {
     format!(
         "{}{}{}{}{}{}{}{}{}{}{}",
         star(),

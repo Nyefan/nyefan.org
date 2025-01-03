@@ -1,9 +1,6 @@
 ---
-layout: single
 title: "My Git Release Flow"
 author: "Nyefan"
-categories:
-  - "software"
 tags:
   - "tools"
   - "original content"

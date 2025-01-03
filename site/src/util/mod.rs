@@ -5,24 +5,26 @@ use sycamore::prelude::View;
 use tracing::debug;
 use tracing_subscriber::FmtSubscriber;
 
+mod colors;
+pub mod components;
+mod styles;
+
 pub(crate) fn render_md_files_in_directory(
     input_directory: &str,
     output_directory: &str,
     embed_html_function: fn(String) -> View,
 ) -> Result<(), Box<dyn Error>> {
-    let _ = std::fs::remove_dir_all(output_directory);
     read_md_files_in_directory(input_directory, render_md_to_html_string::<String>)?
         .iter()
         .map(|(input_path, content)| (input_path, embed_html_function(content.clone())))
         .map(|(input_path, view)| (input_path, sycamore::render_to_string(|| view)))
-        .map(|(input_path, html)| {
-            (
-                PathBuf::from(output_directory).join(input_path.with_extension("html")),
-                html,
-            )
-        })
-        .inspect(|(output_path, _)| debug!("Writing {output_path:?}"))
-        .try_for_each(|(output_path, html)| {
+        .try_for_each(|(input_path, html)| {
+            let output_path = PathBuf::from(output_directory).join(
+                input_path
+                    .strip_prefix(input_directory)?
+                    .with_extension("html"),
+            );
+            debug!("Writing to {:?}", output_path);
             if let Some(parent) = output_path.parent() {
                 std::fs::create_dir_all(parent)?;
             }
@@ -32,9 +34,10 @@ pub(crate) fn render_md_files_in_directory(
     Ok(())
 }
 
+type MdString = String;
 pub(crate) fn read_md_files_in_directory<T, E>(
     input_directory: &str,
-    parse: fn(String) -> Result<T, E>,
+    parse: fn(MdString) -> Result<T, E>,
 ) -> Result<Vec<(PathBuf, T)>, E>
 where
     E: From<Box<dyn Error>> + From<std::io::Error>,

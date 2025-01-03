@@ -1,4 +1,4 @@
-use crate::components;
+use crate::util::components;
 use sycamore::component;
 use sycamore::prelude::*;
 use sycamore::web::tags::*;
