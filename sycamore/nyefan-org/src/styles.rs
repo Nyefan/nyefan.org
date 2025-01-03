@@ -166,6 +166,11 @@ pub(super) fn content_section() -> String {
             border-radius: 6px;
         }}
 
+        .content-section pre code {{
+            background-color: {GRAY_DARCULA};
+            color: {BEIGE_LIGHT};
+        }}
+
         .content-section ul {{
             margin-left: 20px;
         }}
