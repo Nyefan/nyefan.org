@@ -6,6 +6,7 @@ rust-version = "1.85.0"
 publish = false
 
 [dependencies]
+gray_matter = "0.2.8"
 pulldown-cmark = { version = "0.12.2", features = ["simd", "html"] }
 sycamore = "0.9.1"
 tracing = "0.1.41"
