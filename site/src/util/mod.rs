@@ -5,7 +5,7 @@ use sycamore::prelude::View;
 use tracing::debug;
 use tracing_subscriber::FmtSubscriber;
 
-mod colors;
+pub(crate) mod colors;
 pub mod components;
 mod styles;
 
@@ -42,7 +42,8 @@ pub(crate) fn copy_directory(
         .iter()
         .map(DirEntry::path)
         .try_for_each(|input_path| {
-            let output_path = Path::new(output_directory).join(input_path.strip_prefix(input_directory)?);
+            let output_path =
+                Path::new(output_directory).join(input_path.strip_prefix(input_directory)?);
             debug!("Copying {input_path:?} to {output_path:?}");
             if let Some(parent) = output_path.parent() {
                 std::fs::create_dir_all(parent)?;
@@ -90,7 +91,7 @@ pub(crate) fn parse_md_files_in_directory<T, E>(
     parse: fn(PathBuf) -> Result<T, E>,
 ) -> Result<Vec<T>, E>
 where
-    E: From<Box<dyn Error>>
+    E: From<Box<dyn Error>>,
 {
     walk_directory(Path::new(input_directory))?
         .iter()
@@ -98,7 +99,7 @@ where
         .filter(|path| path.extension().is_some_and(|e| e == "md"))
         .inspect(|path| debug!("Reading {path:?}"))
         .map(|path| parse(path))
-        .collect::<Result<Vec<T,>, E>>()
+        .collect::<Result<Vec<T>, E>>()
 }
 
 pub(crate) fn walk_directory(directory: &Path) -> Result<Vec<DirEntry>, Box<dyn Error>> {
@@ -129,4 +130,3 @@ pub(crate) fn setup_logging() {
         .finish();
     tracing::subscriber::set_global_default(subscriber).unwrap();
 }
-

@@ -31,7 +31,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     )?;
     util::copy_directory("content/slides", "dist/slides")?;
 
-    let posts = util::parse_md_files_in_directory("content/_posts", pages::post::parse)?;
+    let mut posts = util::parse_md_files_in_directory("content/_posts", pages::post::parse)?;
+    posts.reverse(); //posts are already lexically sorted when reading, just need to reverse them to sort by date
 
     {
         let previews: [ContentSection; 3] = posts
@@ -61,10 +62,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     {
         let output_path = PathBuf::from("dist/posts.html");
-        let metadatas = posts
-            .iter()
-            .map(|p| &p.metadata)
-            .collect::<Vec<_>>();
+        let metadatas = posts.iter().map(|p| &p.metadata).collect::<Vec<_>>();
         let html = sycamore::render_to_string(|| pages::posts::template(metadatas));
         debug!("Writing posts to dist/posts.html");
         if let Some(parent) = output_path.parent() {

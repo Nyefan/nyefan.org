@@ -10,9 +10,18 @@ pub(crate) fn template(post_metadatas: Vec<&PostMetadata>) -> View {
         .iter()
         .map(|post_metadata| -> View {
             (
-                h2().style("margin-bottom: 0px;").children(post_metadata.title.clone()),
+                h2().style("margin-bottom: 0px;").children(
+                    a().style(format!("color: {};", crate::util::colors::LAVENDER_MEDIUM,))
+                        .href(format!(
+                            "/posts/{}-{}",
+                            post_metadata.date,
+                            post_metadata.title.replace(" ", "-")
+                        ))
+                        .children(post_metadata.title.clone()),
+                ),
                 h5().children(post_metadata.date.clone()),
-                h3().style("margin-bottom: 20px;").children(post_metadata.description.clone()),
+                h3().style("margin-bottom: 20px;")
+                    .children(post_metadata.description.clone()),
             )
                 .into()
         })
@@ -23,7 +32,14 @@ pub(crate) fn template(post_metadatas: Vec<&PostMetadata>) -> View {
             components::site_header(),
             components::main((
                 components::sidebar(),
-                components::content(components::content_section(div().children(content))),
+                components::content(components::content_section((
+                    h2().children(
+                        a().style(format!("color: {};", crate::util::colors::LAVENDER_MEDIUM,))
+                            .href("/posts")
+                            .children("Blog"),
+                    ),
+                    div().children(content),
+                ))),
             )),
             components::site_footer(),
         ))),
