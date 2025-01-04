@@ -1,4 +1,0 @@
----
-permalink: /tags/
-layout: tags
----
