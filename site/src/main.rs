@@ -32,7 +32,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     util::copy_directory("content/slides", "dist/slides")?;
 
     let mut posts = util::parse_md_files_in_directory("content/_posts", pages::post::parse)?;
-    posts.reverse(); //posts are already lexically sorted when reading, just need to reverse them to sort by date
+    posts.sort_by_key(|post| {post.metadata.date.clone()});
+    posts.reverse();
 
     {
         let previews: [ContentSection; 3] = posts

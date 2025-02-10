@@ -9,31 +9,6 @@ pub(crate) mod colors;
 pub mod components;
 mod styles;
 
-pub(crate) fn render_md_files_in_directory(
-    input_directory: &str,
-    output_directory: &str,
-    embed_html_function: fn(String) -> View,
-) -> Result<(), Box<dyn Error>> {
-    read_md_files_in_directory(input_directory, render_md_to_html_string::<String>)?
-        .iter()
-        .map(|(input_path, content)| (input_path, embed_html_function(content.clone())))
-        .map(|(input_path, view)| (input_path, sycamore::render_to_string(|| view)))
-        .try_for_each(|(input_path, html)| {
-            let output_path = PathBuf::from(output_directory).join(
-                input_path
-                    .strip_prefix(input_directory)?
-                    .with_extension("html"),
-            );
-            debug!("Writing to {:?}", output_path);
-            if let Some(parent) = output_path.parent() {
-                std::fs::create_dir_all(parent)?;
-            }
-            std::fs::write(output_path, html)?;
-            Ok::<(), Box<dyn Error>>(())
-        })?;
-    Ok(())
-}
-
 pub(crate) fn copy_directory(
     input_directory: &str,
     output_directory: &str,
@@ -67,23 +42,6 @@ pub(crate) fn render_md_file(
     debug!("Writing to {output_path:?}");
     std::fs::write(output_path, html)?;
     Ok(())
-}
-
-pub(crate) fn read_md_files_in_directory<T, E>(
-    input_directory: &str,
-    parse: fn(String) -> Result<T, E>,
-) -> Result<Vec<(PathBuf, T)>, E>
-where
-    E: From<Box<dyn Error>> + From<std::io::Error>,
-{
-    walk_directory(Path::new(input_directory))?
-        .iter()
-        .map(DirEntry::path)
-        .filter(|path| path.extension().is_some_and(|e| e == "md"))
-        .inspect(|path| debug!("Reading {path:?}"))
-        .map(|path| (path.clone(), std::fs::read_to_string(&path)))
-        .map(|(path, raw)| Ok((path, parse(raw?)?)))
-        .collect()
 }
 
 pub(crate) fn parse_md_files_in_directory<T, E>(
