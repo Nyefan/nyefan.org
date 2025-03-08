@@ -30,7 +30,7 @@
 
 <p></p>
 
-#### <u>Staff DevOps Engineer</u>
+#### <u>Staff Platform Engineer</u>
 
 ##### [ZenGRC](https://www.zengrc.com/)
 
