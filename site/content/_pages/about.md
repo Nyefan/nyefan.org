@@ -37,7 +37,7 @@
 ##### May 2022 to Present
 
 - Created and led interim release management team until processes improved sufficiently to disband it.
-- Rebuilt ci/cd, processes, and service and cloud architectures to attain FedRamp Moderate certification
+- Rebuilt ci/cd, processes, and service and cloud architectures to attain FedRAMP Moderate certification
 - Led adoption of modern kubernetes and aws tooling, including: helm, crossplane, terraform, and gitops.
 - Wrote and implemented a trunk-based, feature-flagged, decentralized release process.
 - Reduced logging, monitoring, and alerting costs by 80% by excising and replacing DataDog
