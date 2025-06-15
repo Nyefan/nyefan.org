@@ -30,6 +30,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         pages::http_404_not_found::template,
     )?;
     util::copy_directory("content/slides", "dist/slides")?;
+    util::copy_directory("content/.well-known", "dist/.well-known")?;
 
     let mut posts = util::parse_md_files_in_directory("content/_posts", pages::post::parse)?;
     posts.sort_by_key(|post| {post.metadata.date.clone()});
