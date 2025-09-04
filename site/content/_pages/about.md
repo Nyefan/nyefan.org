@@ -2,24 +2,31 @@
 
 <table style="width:100%;margin-bottom: 20px;">
   <tr>
-    <th>java</th>
-    <th>kubernetes</th>
+    <th>rust</th>
     <th>postgresql</th>
+    <th>kubernetes</th>
     <th>aws / azure / gcp</th>
     <th>developer experience</th>
   </tr>
   <tr>
-    <th>rust</th>
-    <th>helm / kustomize / timoni</th>
-    <th>cassandra</th>
-    <th>terraform / crossplane / kops</th>
+    <th>java</th>
+    <th>redis / valkey</th>
+    <th>eks / kops / aks / gke</th>
+    <th>terraform / crossplane</th>
     <th>incident management</th>
   </tr>
   <tr>
     <th>python</th>
-    <th>docker / containerd</th>
     <th>dynamodb</th>
-    <th>circleci / github actions / tekton</th>
+    <th>helm / kustomize / flux</th>
+    <th>opentelemetry</th>
+    <th>platform engineering</th>
+  </tr>
+  <tr>
+    <th>bash</th>
+    <th>cassandra</th>
+    <th>docker / containerd</th>
+    <th>circleci / github actions / jenkins</th>
     <th>site reliability</th>
   </tr>
 </table>
@@ -36,12 +43,13 @@
 
 ##### May 2022 to Present
 
-- Created and led interim release management team until processes improved sufficiently to disband it.
-- Rebuilt ci/cd, processes, and service and cloud architectures to attain FedRAMP Moderate certification
-- Led adoption of modern kubernetes and aws tooling, including: helm, crossplane, terraform, and gitops.
-- Wrote and implemented a trunk-based, feature-flagged, decentralized release process.
-- Reduced logging, monitoring, and alerting costs by 80% by excising and replacing DataDog
-- Increased deployment velocity by 630% over two years
+- Created and led interim release management team until processes improved sufficiently to disband it
+- Attained FedRamp Moderate certification by rebuilding ci/cd, processes, and service and cloud architectures
+- Reduced logging, monitoring, and alerting costs by 80% by excising and replacing DataDog with fluent, prometheus, opensearch, jaeger, and grafana
+- Increased deployment velocity by 630% over two years by increasing developer confidence in CI and testing
+- Successfully executed multiple domain migrations and a surrender with no downtime
+- Led adoption of modern kubernetes and aws tooling, including: helm, crossplane, terraform, and gitops
+- Wrote and implemented a trunk-based, feature-flagged, decentralized release process
 - Overhauled our on-premise deployment to improve replicability and reduce support hours
 - Evaluated technologies for adoption, migration, and removal
 - Mentored junior and senior engineers
@@ -83,16 +91,13 @@
 
 ##### February 2019 - April 2021
 
-- SME for Kubernetes, Kops, EKS, Helm, CircleCI, and Java
-- Respond to, diagnose, and correct production outages
-- Optimize Kubernetes environment and tooling, enabling 20x scale up over 3 weeks in response to COVID-19
-- Aggressively target a complete “Infrastructure as Code” implementation of our AWS and Kubernetes environments
-- Lead application of best practices around AWS, Docker, and Kubernetes to acquisitions’ cloud resources
-- Implemented least-privilege best practices for Kubernetes services’ access to AWS resources
-- Overhauled CI/CD, resulting in a 212% increase in deployment velocity company-wide after 18 months
+- Optimized Kubernetes environment and tooling, enabling 20x scale up over 3 weeks in response to COVID-19
+- Increased deployment velocity by 212% by condensing 41 custom jenkins deployment scripts into a set of composable CircleCI jobs and reducing the deployment error rate from 61% to 3% (as measured after 8 months)
+- Aggressively targeted a complete Infrastructure as Code implementation of our AWS and Kubernetes environments using terraform and helm
+- Led application of best practices around AWS, Docker, and Kubernetes to acquisitions’ cloud resources
 - Centralized Helm and Cloudformation templates into importable libraries accessed and applied via CI/CD
 - Implemented automated error rate anomaly detection and rollback in production service deployments
-- Created dual monitoring and alerting pipelines using Prometheus, Grafana, Cloudwatch, and OpsGenie
+- Reduced time to detection and time to resolution of incidents by implementing metric and log monitors with Prometheus, Grafana, AlertManager, Cloudwatch, and OpsGenie
 
 <p></p>
 
@@ -106,7 +111,7 @@
 
 ##### July 2018 - January 2019
 
-- Developed Java and Typescript services for managing data at petabyte scale.
+- Developed Java and Typescript services for managing data at petabyte scale
 
 <p></p>
 
@@ -120,11 +125,10 @@
 
 ##### January 2017 - June 2018
 
-- Developed a Helm- and Terraform-based Kubernetes bootstrapping and deployment tool for creating and maintaining a
-  versioned infrastructure and service mesh with seamless rollback capability.
+- Developed a Helm- and Terraform-based Kubernetes bootstrapping and deployment tool for creating and maintaining a versioned infrastructure and service mesh with seamless rollback capability
 - Implemented oauth-based authn/authz infrastructure
-- Developed, containerized, and deployed Java microservices.
-- Converted stateful cron jobs to stateless REST services.
+- Developed, containerized, and deployed Java microservices
+- Converted stateful cron jobs to stateless event-stream services
 
 <p></p>
 
@@ -140,7 +144,7 @@
 
 - Optimized chemical vapor deposition growth and polymer transfer techniques for graphene and other 2D materials.
 - Designed and constructed Hall Effect and quantum Hall Effect devices and transistors from various 2D materials.
-- Created lithography process for etching trace circuits into CVD graphene.
+- Created electron beam lithography process for etching trace circuits into CVD graphene.
 
 <p></p>
 
