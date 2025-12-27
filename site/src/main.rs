@@ -33,7 +33,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     util::copy_directory("content/.well-known", "dist/.well-known")?;
 
     let mut posts = util::parse_md_files_in_directory("content/_posts", pages::post::parse)?;
-    posts.sort_by_key(|post| {post.metadata.date.clone()});
+    posts.sort_by_key(|post| post.metadata.date.clone());
     posts.reverse();
 
     {

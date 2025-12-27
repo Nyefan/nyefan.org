@@ -91,15 +91,15 @@ pub(crate) fn parse(path: PathBuf) -> Result<Post, Box<dyn Error>> {
     };
     Ok(Post {
         origin_path: path.to_str().unwrap().to_string(),
-        raw_content,
+        _raw_content: raw_content,
         html_content,
         html_preview,
         metadata: PostMetadata {
-            raw_front_matter: parsed_matter.matter,
+            _raw_front_matter: parsed_matter.matter,
             title: title.unwrap_or("".to_string()),
-            author: "Nyefan".to_string(),
+            _author: "Nyefan".to_string(),
             description: "".to_string(),
-            tags: vec![],
+            _tags: vec![],
             date: date.unwrap_or("".to_string()),
         },
     })
@@ -107,22 +107,22 @@ pub(crate) fn parse(path: PathBuf) -> Result<Post, Box<dyn Error>> {
 
 pub(crate) struct Post {
     pub(crate) origin_path: String,
-    raw_content: String,
+    _raw_content: String,
     pub(crate) html_content: String,
     html_preview: String,
     pub(crate) metadata: PostMetadata,
 }
 
 pub(crate) struct PostMetadata {
-    raw_front_matter: String,
+    _raw_front_matter: String,
     pub(crate) title: String,
-    author: String,
+    _author: String,
     pub(crate) description: String,
-    tags: Vec<String>,
+    _tags: Vec<String>,
     pub(crate) date: String,
 }
 
-pub(crate) enum Tag {
+pub(crate) enum _Tag {
     Gaming,
     Programming,
     Music,
