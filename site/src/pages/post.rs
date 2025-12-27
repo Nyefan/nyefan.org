@@ -1,5 +1,5 @@
 use crate::util::components;
-use gray_matter::Matter;
+use gray_matter::{Matter, ParsedEntity};
 use gray_matter::engine::YAML;
 use std::error::Error;
 use std::path::PathBuf;
@@ -52,7 +52,7 @@ pub(crate) fn preview(post: &Post) -> components::ContentSection {
 
 pub(crate) fn parse(path: PathBuf) -> Result<Post, Box<dyn Error>> {
     let raw_content = std::fs::read_to_string(&path)?;
-    let parsed_matter = Matter::<YAML>::new().parse(&raw_content);
+    let parsed_matter: ParsedEntity = Matter::<YAML>::new().parse(&raw_content)?;
     let html_content = {
         let parser =
             pulldown_cmark::Parser::new_ext(&parsed_matter.content, pulldown_cmark::Options::all());

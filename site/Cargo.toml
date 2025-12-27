@@ -2,12 +2,12 @@
 name = "nyefan-org"
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.85.0"
+rust-version = "1.94.0"
 publish = false
 
 [dependencies]
-gray_matter = "0.2.8"
-pulldown-cmark = { version = "0.12.2", features = ["simd", "html"] }
+gray_matter = "0.3.2"
+pulldown-cmark = { version = "0.13.0", features = ["simd", "html"] }
 sycamore = "0.9.1"
 tracing = "0.1.41"
 tracing-subscriber = "0.3.19"
