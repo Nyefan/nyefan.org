@@ -307,7 +307,7 @@ This game has been at the top of my favorite games of all time list for nearly t
 getting unseated any time soon.  Nothing pleases my queer little heart more than a timey-wimey deck-building dating-sim 
 gender-stomping romp through an anarchist refugee garden commune in space.
 
-### Lands of Lore: Guardians of Destiny
+### Lands of Lore: Guardians of Destiny ✅
 
 Lol: GoD is a superb game that had the misfortune to release in the same year as Diablo, Final Fantasy VII and Final 
 Fantasy Tactics, 007 GoldenEye, Dungeon Keeper, Star Fox 64, Harvest Moon, and Grand Theft Auto; and in the same 30 day 
