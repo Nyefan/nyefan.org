@@ -13,6 +13,18 @@ pub(crate) fn site_head() -> SiteHead {
                 .name("viewport")
                 .content("width=device-width, initial-scale=1.0"),
             title().title("nyefan.org"),
+            script().dangerously_set_inner_html(
+                include_str!("js/verifyJavascriptEnabled.js")
+                    .split_whitespace()
+                    .collect::<Vec<&str>>()
+                    .join(" "),
+            ),
+            script().dangerously_set_inner_html(
+                include_str!("js/updateAndMaintainLayout.js")
+                    .split_whitespace()
+                    .collect::<Vec<&str>>()
+                    .join(" "),
+            ),
             style().children(styles::all()),
         ))
         .into()

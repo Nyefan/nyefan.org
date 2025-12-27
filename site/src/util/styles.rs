@@ -15,13 +15,12 @@ pub(crate) fn star() -> String {
 pub(crate) fn html_body() -> String {
     format!(
         "html, body {{
-            height: 100%;
+            min-height: 100%;
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: {BEIGE_LIGHT};
             color: {GRAY_DARCULA};
             display: flex;
-            align-items: center;
             justify-content: center;
         }}"
     )
@@ -35,9 +34,9 @@ pub(crate) fn wrapper() -> String {
             display: flex;
             flex-direction: column;
             min-height: 100%;
-            max-height: 100%;
-            max-width: calc(100vh * 1.2);
-            min-width: calc(100vh / 1.4);
+            width: 100%;
+            max-width: var(--site-max-width, 1200px);
+            overflow-x: hidden;
         }}"
     )
     .split_whitespace()
@@ -84,6 +83,14 @@ pub(crate) fn main() -> String {
     ".main {
         flex: 1; /* Allow the main section to expand */
         display: flex;
+    }
+    .when-viewport-is-narrow .main {
+        flex-direction: column-reverse;
+    }
+    @media (max-width: 1200px) {
+        html:not(.js-enabled) .main {
+            flex-direction: column-reverse;
+        }
     }"
     .split_whitespace()
     .collect::<Vec<&str>>()
@@ -109,6 +116,18 @@ pub(crate) fn sidebar() -> String {
             color: {BEIGE_LIGHT};
         }}
 
+        .when-viewport-is-narrow .sidebar {{
+            margin-right: 20px;
+            margin-left: 20px;
+        }}
+
+        @media (max-width: 1200px) {{
+            html:not(.js-enabled) .sidebar {{
+                margin-right: 20px;
+                margin-left: 20px;
+            }}
+        }}
+
         .sidebar a {{
             color: {GOLDENROD_DARK};
             text-decoration: none;
@@ -129,6 +148,17 @@ pub(crate) fn content() -> String {
         flex-direction: column;
         gap: 20px;
         margin-right: 20px;
+        min-width: 0;
+    }
+    .when-viewport-is-narrow .content {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    @media (max-width: 1200px) {
+        html:not(.js-enabled) .content {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
     }"
     .split_whitespace()
     .collect::<Vec<&str>>()
