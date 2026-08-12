@@ -7,6 +7,41 @@ categories:
 tags:
   - "original content"
 ---
+### UPDATE AUGUST 2026 
+
+---
+
+It has been nearly 18 months since release with four major DLC releases, and there are still severe issues with the 
+base game that it seems will never be corrected.
+
+Furthermore, the founder's edition ($200) purchasers have been completely shafted both in expectation and on a purely 
+monetary level. Buying the base game and every DLC at release that is now confirmed to be the ENTIRE content of the 
+founder's edition would only cost:
+
+```
+  $70 - base game
+  $30 - crossroads
+  $30 - right to rule
+  $30 - tides of power
+   $8 - tecumseh and shawnee
+   $4 - himiko
+   $4 - ashoka
+   $4 - xerxes
+   $4 - friedrich
+-----------------------------
+ $184
+```
+
+Accounting for inflation between then and now, that is \$179 in constant February 2025 dollars vs the \$200 they paid. 
+That is such a ridiculous betrayal of Firaxis' most loyal fan base, even discounting that the game remains a buggy, 
+blurry, messy, incomplete product.
+
+Civ VI still looks better, plays better, and most importantly, is a complete game. Don't waste your money or time on 
+Civ VII.
+
+### ORIGINAL FEBRUARY 2025
+
+---
 
 ### TL;DR
 
