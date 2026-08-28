@@ -85,6 +85,10 @@ pub(crate) fn sidebar() -> Sidebar {
             and building scalable, reliable, appropriately scoped, and performant software."
         ),
         p().style("text-align:justify;").children(
+            "Nyefan is also the maintainer of `pynose-exclude`, a onelogin-compatible fork of \
+            `python3-saml`, and the SaaSaparilla set of tools."
+        ),
+        p().style("text-align:justify;").children(
             "This site is part runbook, part cv, part bookmark collection, and part personal blog."
         ),
         div().style("flex:1;"),
