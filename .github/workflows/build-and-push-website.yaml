@@ -29,7 +29,7 @@ jobs:
 #      - name: Install Dependencies
 #        run: (apk add --no-cache tar && tar --version)
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # ignore the aikido finding - the token is required by the upload action
       - name: Build Project
         working-directory: site
         run: (cargo run)
