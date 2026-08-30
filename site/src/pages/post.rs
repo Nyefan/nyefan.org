@@ -1,6 +1,8 @@
 use crate::util::components;
-use gray_matter::{Matter, ParsedEntity};
 use gray_matter::engine::YAML;
+use gray_matter::{Matter, ParsedEntity};
+use pulldown_cmark::CodeBlockKind::Fenced;
+use pulldown_cmark::{Event, Tag, TagEnd};
 use std::error::Error;
 use std::path::PathBuf;
 use sycamore::component;
@@ -55,7 +57,9 @@ pub(crate) fn parse(path: PathBuf) -> Result<Post, Box<dyn Error>> {
     let parsed_matter: ParsedEntity = Matter::<YAML>::new().parse(&raw_content)?;
     let html_content = {
         let parser =
-            pulldown_cmark::Parser::new_ext(&parsed_matter.content, pulldown_cmark::Options::all());
+            pulldown_cmark::Parser::new_ext(&parsed_matter.content, pulldown_cmark::Options::all())
+                .scan((false, String::new(), String::new()), scanulate_code_blocks)
+                .flatten();
         let mut html = String::new();
         pulldown_cmark::html::push_html(&mut html, parser);
         html
@@ -103,6 +107,65 @@ pub(crate) fn parse(path: PathBuf) -> Result<Post, Box<dyn Error>> {
             date: date.unwrap_or("".to_string()),
         },
     })
+}
+
+fn scanulate_code_blocks<'a>(
+    (in_code_block, buffer, code_block_language): &mut (bool, String, String),
+    event: Event<'a>,
+) -> Option<Vec<Event<'a>>> {
+    match (*in_code_block, event) {
+        (false, Event::Start(Tag::CodeBlock(Fenced(language)))) => {
+            *in_code_block = true;
+            buffer.clear();
+            code_block_language.clear();
+            code_block_language.push_str(&language);
+            Some(vec![Event::Start(Tag::CodeBlock(Fenced(language)))])
+        }
+        (true, Event::End(TagEnd::CodeBlock)) => {
+            *in_code_block = false;
+            Some(vec![
+                Event::InlineHtml(
+                    highlight_syntax(
+                        std::mem::take(code_block_language).as_str().into(),
+                        std::mem::take(buffer),
+                    )
+                    .into(),
+                ),
+                Event::End(TagEnd::CodeBlock),
+            ])
+        }
+        (true, Event::Text(inner)) => {
+            buffer.push_str(&inner);
+            Some(vec![])
+        }
+        (true, other) => unreachable!(
+            "Encountered non-Text block in fenced code block:\n{:?}",
+            other
+        ),
+        (false, event) => Some(vec![event]),
+    }
+}
+
+enum CodeLanguage {
+    Rust,
+    Yaml,
+    Unsupported,
+}
+impl From<&str> for CodeLanguage {
+    fn from(value: &str) -> Self {
+        match value {
+            "rust" => Self::Rust,
+            "yaml" => Self::Yaml,
+            _ => Self::Unsupported,
+        }
+    }
+}
+
+fn highlight_syntax(code_language: CodeLanguage, text: String) -> String {
+    let text = text.replace("\\`", "`");
+    match code_language {
+        _ => text.to_string(),
+    }
 }
 
 pub(crate) struct Post {
