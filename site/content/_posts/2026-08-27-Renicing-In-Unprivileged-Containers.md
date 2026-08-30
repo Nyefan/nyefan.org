@@ -16,9 +16,10 @@ parent process's `niceness` or `0` for pid 1.  `niceness` can take any value fro
 `niceness` will be deferred by the cpu scheduler while processes with lower `niceness` are running.  Raising `niceness`
 can be done by any user on their owned processes, but lowering niceness is forbidden without root, which raises the 
 question, "How can we give way to existing processes during container startup but then return to the default `niceness`
-once we are able to serve traffic?".  The normal answer would be to set root uid on the `nice` program to allow an
-unprivileged user to set `niceness`.  However, if you're using Alpine containers, then `nice` is actually `busybox`, so
-setting root uid on `nice` would completely give up on the idea of non-root users.  Here is once possible solution.
+once we are able to serve traffic?".  The normal answer would be to set root uid on the `renice` program to allow an
+unprivileged user to set `niceness`.  However, if you're using Alpine containers, then `renice <args>` is actually 
+`busybox renice <args>`, so setting root uid on `renice` would completely give up on the idea of non-root users.  Here 
+is once possible solution.
 
 ### Code
 
