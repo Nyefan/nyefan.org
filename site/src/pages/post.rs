@@ -1,4 +1,5 @@
 use crate::util::components;
+use arborium::Highlighter;
 use gray_matter::engine::YAML;
 use gray_matter::{Matter, ParsedEntity};
 use pulldown_cmark::CodeBlockKind::Fenced;
@@ -126,7 +127,7 @@ fn scanulate_code_blocks<'a>(
             Some(vec![
                 Event::InlineHtml(
                     highlight_syntax(
-                        std::mem::take(code_block_language).as_str().into(),
+                        std::mem::take(code_block_language).as_str(),
                         std::mem::take(buffer),
                     )
                     .into(),
@@ -146,26 +147,10 @@ fn scanulate_code_blocks<'a>(
     }
 }
 
-enum CodeLanguage {
-    Rust,
-    Yaml,
-    Unsupported,
-}
-impl From<&str> for CodeLanguage {
-    fn from(value: &str) -> Self {
-        match value {
-            "rust" => Self::Rust,
-            "yaml" => Self::Yaml,
-            _ => Self::Unsupported,
-        }
-    }
-}
-
-fn highlight_syntax(code_language: CodeLanguage, text: String) -> String {
+fn highlight_syntax(code_language: &str, text: String) -> String {
     let text = text.replace("\\`", "`");
-    match code_language {
-        _ => text.to_string(),
-    }
+    let mut highlighter = Highlighter::new();
+    highlighter.highlight(code_language, &text).unwrap_or(text)
 }
 
 pub(crate) struct Post {

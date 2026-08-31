@@ -29,7 +29,8 @@ jobs:
 #      - name: Install Dependencies
 #        run: (apk add --no-cache tar && tar --version)
       - name: Checkout Repository
-        uses: actions/checkout@v4 # ignore the aikido finding - the token is required by the upload action
+        # nosec - the cached GITHUB_TOKEN is required in the subsequent Upload Artifact step
+        uses: actions/checkout@v4
       - name: Build Project
         working-directory: site
         run: (cargo run)

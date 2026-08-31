@@ -25,6 +25,17 @@ pub(crate) fn site_head() -> SiteHead {
                     .collect::<Vec<&str>>()
                     .join(" "),
             ),
+            // script().src("https://cdn.jsdelivr.net/npm/@arborium/arborium@2/dist/arborium.iife.js"),
+            // script() // gruvbox-dark, melange-dark
+            //     .attr("data-theme", "ef-melissa-dark")
+            //     .dangerously_set_inner_html(
+            //         include_str!(
+            //             "js/cdn.jsdelivr.net/npm/@arborium/arborium@2/dist/arborium.iife.js"
+            //         ) // don't depend on third party cdn
+            //         .split_whitespace()
+            //         .collect::<Vec<&str>>()
+            //         .join(" "),
+            //     ),
             style().children(styles::all()),
         ))
         .into()

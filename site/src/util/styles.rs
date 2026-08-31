@@ -1,5 +1,11 @@
 use crate::util::colors::*;
 
+pub(crate) fn vars() -> String {
+    include_str!("css/arborium_vars.css").to_string()
+        .split_whitespace()
+        .collect::<Vec<&str>>()
+        .join(" ")
+}
 pub(crate) fn star() -> String {
     format!(
         "* {{
@@ -198,7 +204,7 @@ pub(crate) fn content_section() -> String {
 
         .content-section pre code {{
             background-color: {GRAY_DARCULA};
-            color: {BEIGE_LIGHT};
+            {}
         }}
 
         .content-section ul {{
@@ -211,7 +217,8 @@ pub(crate) fn content_section() -> String {
 
         .content-section p {{
             margin-bottom: 10px;
-        }}"
+        }}",
+        include_str!("css/arborium_highlighting.css").to_string()
     )
     .split_whitespace()
     .collect::<Vec<&str>>()
@@ -257,7 +264,8 @@ pub(crate) fn footer() -> String {
 }
 pub(crate) fn all() -> String {
     format!(
-        "{}{}{}{}{}{}{}{}{}{}{}",
+        "{}{}{}{}{}{}{}{}{}{}{}{}",
+        vars(),
         star(),
         html_body(),
         wrapper(),
